@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Олександр",
+    "age": 18,
+    "email": "alex@example.com",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "name": "Марія",
+    "age": 22,
+    "email": "maria@example.com",
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "name": "Андрій",
+    "age": 16,
+    "email": "andrii@example.com",
+    "isActive": false
+  },
+  {
+    "id": 4,
+    "name": "Софія",
+    "age": 25,
+    "email": "sofia@example.com",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "name": "Дмитро",
+    "age": 20,
+    "email": "dmytro@example.com",
+    "isActive": false
+  },
+  {
+    "id": 6,
+    "name": "Анна",
+    "age": 19,
+    "email": "anna@example.com",
+    "isActive": true
+  }
+]
