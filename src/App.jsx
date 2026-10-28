@@ -26,6 +26,10 @@ class App extends Component{
     }
   }
 
+  handleFormSubmit = (data)=>{
+    this.setState((prev)=>({users:[...prev.users,data]}))
+  }
+
   handleToggle = () =>{
     this.setState((prev)=>({isOnScreen:!prev.isOnScreen}))
   }
@@ -39,7 +43,7 @@ class App extends Component{
       <>
       <OpenButton openModal={this.handleToggle}/>
       <UserList users={users} handleDel={this.handleDelete}/>
-      {isOnScreen && <Modal closeModal={this.handleToggle}/>}
+      {isOnScreen && <Modal onForm={this.handleFormSubmit} closeModal={this.handleToggle}/>}
       </>
     )
   }

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { createPortal } from "react-dom";
 import style from "./Modal.module.css";
+import { nanoid } from "nanoid";
 
 const modal = document.getElementById("modal");
 class Modal extends Component {
@@ -39,16 +40,38 @@ class Modal extends Component {
     })
   }
 
+  handleSubmit = (evt)=>{
+    evt.preventDefault()
+
+    const {elements}=evt.currentTarget
+    const userData={
+      id:nanoid(),
+      name:elements.name.value,
+      age:elements.age.value,
+      email:elements.email.value,
+      isActive:false,
+    }
+
+    this.setState({
+      name:"",
+      age:"",
+      email:""
+    })
+    
+    this.props.closeModal()
+    this.props.onForm(userData)
+    
+  }
+
   render() {
     const { closeModal } = this.props;
     const {name,age,email}=this.state;
-    console.log(this.state);
     
     return createPortal(
         
       <div className={style.backdrop} onClick={this.handleCloseOnBackdrop}>
         <div className={style.modal}>
-          <form className={style.form}>
+          <form onSubmit={this.handleSubmit} className={style.form}>
             <button onClick={closeModal} type="button" className={style.close}>X</button>
             <input value={name} onChange={this.handleInput} type="text" name="name" placeholder="Enter their name" />
             <input value={age} onChange={this.handleInput} type="number" name="age" placeholder="Enter their age" />
